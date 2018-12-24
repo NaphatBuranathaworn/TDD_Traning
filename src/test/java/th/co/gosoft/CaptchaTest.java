@@ -3,6 +3,7 @@ package th.co.gosoft;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertEquals;
 
 public class CaptchaTest {
@@ -13,48 +14,10 @@ public class CaptchaTest {
     private static final int DUMMY_LEFT_OPERAND = 2;
 
     @Test
-    public void itShouldReturnOne() {
+    public void firstPatternLeftOperandShouldReturnInstanceOfOperand() {
         Captcha captcha = new Captcha(1, 1, DUMMY_OPERATOR, DUMMY_RIGHT_OPERAND);
-        String actual = captcha.getLeftOperand();
-
-        assertEquals("One", actual);
+        Assert.assertTrue(captcha.getLeftOperand() instanceof Operand);
     }
-
-    @Test
-    public void  itShouldReturnNine(){
-        Captcha captcha = new Captcha(1, 9, DUMMY_OPERATOR, DUMMY_RIGHT_OPERAND);
-        String actual = captcha.getLeftOperand();
-        assertEquals("Nine", actual );
-    }
-
-    @Test
-    public void itShouldReturnFive() {
-        Captcha captcha = new Captcha(1, 5, DUMMY_OPERATOR, DUMMY_RIGHT_OPERAND);
-        String actual = captcha.getLeftOperand();
-        assertEquals("Five", actual);
-    }
-
-//    @Test
-//    public void itShouldReturnPlus() {
-//        Captcha captcha = new Captcha(DUMMY_PATTERN, DUMMY_LEFT_OPERAND, 1, DUMMY_RIGHT_OPERAND);
-//        String actual = captcha.getOperator();
-//        assertEquals("+", actual);
-//    }
-//
-//    @Test
-//    public void itShouldReturnMultiply() {
-//        Captcha captcha = new Captcha(DUMMY_PATTERN,DUMMY_LEFT_OPERAND,2,DUMMY_RIGHT_OPERAND);
-//        String actual = captcha.getOperator();
-//        assertEquals("*",actual);
-//
-//    }
-//
-//    @Test
-//    public void itShouldReturnMinus(){
-//        Captcha captcha = new Captcha(DUMMY_PATTERN, DUMMY_LEFT_OPERAND, 3, DUMMY_RIGHT_OPERAND);
-//        String actual = captcha.getOperator();
-//        assertEquals("-", actual);
-//    }
 
     @Test
     public void itShouldReturnInstanceOfOperator() {
@@ -63,25 +26,21 @@ public class CaptchaTest {
     }
 
     @Test
-    public void firstPatternRightOperandShouldBeStringOfNumber(){
+    public void firstPatternRightOperandShouldReturnInstanceOfOperand() {
         Captcha captcha = new Captcha(DUMMY_PATTERN,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
-        String actual = captcha.getRightOperand();
-        assertEquals("1",actual);
-
+        Assert.assertTrue(captcha.getRightOperand() instanceof Operand);
     }
 
     @Test
-    public void รูปแบบที่สองตัวแปรทางซ้ายควรจะเป็นตัวอักษรของตัวเลข(){
+    public void secondPatternLeftOperandShouldReturnInstanceOfOperand() {
         Captcha captcha = new Captcha(2, 1, DUMMY_OPERATOR, DUMMY_RIGHT_OPERAND);
-        String actual = captcha.getLeftOperand();
-        assertEquals("1", actual);
+        assertTrue(captcha.getLeftOperand() instanceof Operand);
     }
 
     @Test
-    public void รูปแบบที่สองตัวแปรทางขวาเป็นตัวอักษรภาษาอังกฤษ(){
-        Captcha  captcha =new Captcha(2,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
-        String actual = captcha.getRightOperand();
-        assertEquals("One",actual);
+    public void secondPatternRightOperandShouldReturnInstanceOfOperand() {
+        Captcha captcha = new Captcha(2,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
+        Assert.assertTrue(captcha.getRightOperand() instanceof Operand);
     }
 
     @Test
