@@ -11,10 +11,10 @@ public class OperandFactory {
     }
 
     public Operand createRight(int pattern, int rightOperand) {
-        if(1 == pattern) {
-            return new IntegerOperand(rightOperand);
-        }else {
+        if(2 == pattern) {
             return new StringOperand(rightOperand);
+        }else {
+            return new IntegerOperand(rightOperand);
         }
     }
 }

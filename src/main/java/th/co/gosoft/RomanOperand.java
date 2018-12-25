@@ -1,10 +1,11 @@
 package th.co.gosoft;
 
-public class RomanOperand {
+public class RomanOperand extends Operand {
     private final int input;
 
     public RomanOperand(int input) {
-        this.input = input;
+        super(input);
+        this.input = operandValue;
     }
 
     public String getOperand() {
