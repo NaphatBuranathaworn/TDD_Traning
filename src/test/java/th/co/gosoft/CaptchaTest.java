@@ -39,7 +39,7 @@ public class CaptchaTest {
 
 
     @Test
-    public void itShouldReturnInstanceOfOperator() {
+    public void operatorShouldReturnInstanceOfOperator() {
         Captcha captcha = new Captcha(DUMMY_PATTERN,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
         Assert.assertTrue(captcha.getOperator() instanceof Operator);
     }
