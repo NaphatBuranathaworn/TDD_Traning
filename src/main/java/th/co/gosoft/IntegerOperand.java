@@ -6,9 +6,8 @@ public class IntegerOperand extends Operand {
 
     public IntegerOperand(int input) {
         super(input);
-        this.input = input;
+        this.input = operandValue;
     }
-
 
     public String toString() {
         return String.valueOf(input);

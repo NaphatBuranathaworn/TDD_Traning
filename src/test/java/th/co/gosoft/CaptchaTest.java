@@ -20,12 +20,6 @@ public class CaptchaTest {
     }
 
     @Test
-    public void itShouldReturnInstanceOfOperator() {
-        Captcha captcha = new Captcha(DUMMY_PATTERN,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
-        Assert.assertTrue(captcha.getOperator() instanceof Operator);
-    }
-
-    @Test
     public void firstPatternRightOperandShouldReturnInstanceOfOperand() {
         Captcha captcha = new Captcha(DUMMY_PATTERN,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
         Assert.assertTrue(captcha.getRightOperand() instanceof Operand);
@@ -41,6 +35,13 @@ public class CaptchaTest {
     public void secondPatternRightOperandShouldReturnInstanceOfOperand() {
         Captcha captcha = new Captcha(2,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
         Assert.assertTrue(captcha.getRightOperand() instanceof Operand);
+    }
+
+
+    @Test
+    public void itShouldReturnInstanceOfOperator() {
+        Captcha captcha = new Captcha(DUMMY_PATTERN,DUMMY_LEFT_OPERAND,DUMMY_OPERATOR,1);
+        Assert.assertTrue(captcha.getOperator() instanceof Operator);
     }
 
     @Test

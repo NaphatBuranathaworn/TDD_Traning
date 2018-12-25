@@ -1,42 +1,37 @@
 package th.co.gosoft;
 
 public class Captcha {
-    private final int left;
-    private  int _operator;
-    private final int right;
-    private final int pattern;
+
+    private OperandFactory operandFactory;
+    private Operand leftOperand;
+    private Operand rightOperand;
+    private Operator operator;
 
     public Captcha(int pattern, int leftOperand, int operator, int rightOperand) {
-         left = leftOperand;
-        _operator = operator;
-        right = rightOperand;
-        this.pattern = pattern;
+        this.operandFactory = new OperandFactory();
+        this.leftOperand = operandFactory.createLeft(pattern, leftOperand);
+        this.rightOperand = operandFactory.createRight(pattern, rightOperand);
+        this.operator = new Operator(operator);
     }
 
     public Operand getLeftOperand() {
-        if(pattern == 1) {
-            return new StringOperand(left);
-        }else {
-            return new IntegerOperand(left);
-        }
+        return leftOperand;
     }
 
     public Operator getOperator() {
-        return new Operator(_operator);
+        return operator;
     }
 
     public Operand getRightOperand() {
-        if(pattern==2){
-            return new StringOperand(right);
-        } else {
-            return new IntegerOperand(right);
-        }
+        return rightOperand;
     }
 
     public String toString(){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getLeftOperand()).append(" ");
-        stringBuilder.append(getOperator()).append(" ");
+        stringBuilder.append(getLeftOperand());
+        stringBuilder.append(" ");
+        stringBuilder.append(getOperator());
+        stringBuilder.append(" ");
         stringBuilder.append(getRightOperand());
         return  stringBuilder.toString();
     }

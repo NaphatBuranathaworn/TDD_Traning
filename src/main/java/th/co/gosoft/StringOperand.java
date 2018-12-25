@@ -1,11 +1,12 @@
 package th.co.gosoft;
 
 public class StringOperand extends Operand {
+
     private final int input;
 
     public StringOperand(int input) {
         super(input);
-        this.input = input;
+        this.input = operandValue;
     }
 
     public String toString() {
